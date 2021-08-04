@@ -1,9 +1,9 @@
-// Copyright (c) 2020-2021 The Bitcoin Core developers
+// Copyright (c) 2020-2021 The Fujicoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_SOCK_H
-#define BITCOIN_UTIL_SOCK_H
+#ifndef FUJICOIN_UTIL_SOCK_H
+#define FUJICOIN_UTIL_SOCK_H
 
 #include <compat.h>
 #include <threadinterrupt.h>
@@ -182,4 +182,4 @@ std::string NetworkErrorString(int err);
 /** Close socket and set hSocket to INVALID_SOCKET */
 bool CloseSocket(SOCKET& hSocket);
 
-#endif // BITCOIN_UTIL_SOCK_H
+#endif // FUJICOIN_UTIL_SOCK_H

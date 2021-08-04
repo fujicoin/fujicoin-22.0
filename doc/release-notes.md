@@ -1,6 +1,6 @@
-# Release notes now being edited on https://github.com/bitcoin-core/bitcoin-devwiki/wiki/22.0-Release-Notes-draft
+# Release notes now being edited on https://github.com/fujicoin-core/fujicoin-devwiki/wiki/22.0-Release-Notes-draft
 
-*After branching off for a major version release of Bitcoin Core, use this
+*After branching off for a major version release of Fujicoin Core, use this
 template to create the initial release notes draft.*
 
 *The release notes draft is a temporary file that can be added to by anyone. See
@@ -10,50 +10,50 @@ for the process.*
 *Create the draft, named* "*version* Release Notes Draft"
 *(e.g. "0.20.0 Release Notes Draft"), as a collaborative wiki in:*
 
-https://github.com/bitcoin-core/bitcoin-devwiki/wiki/
+https://github.com/fujicoin-core/fujicoin-devwiki/wiki/
 
 *Before the final release, move the notes back to this git repository.*
 
 *version* Release Notes Draft
 ===============================
 
-Bitcoin Core version *version* is now available from:
+Fujicoin Core version *version* is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-*version*/>
+  <https://fujicoincore.org/bin/fujicoin-core-*version*/>
 
 This release includes new features, various bug fixes and performance
 improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/bitcoin/bitcoin/issues>
+  <https://github.com/fujicoin/fujicoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://fujicoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
-installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Fujicoin-Qt` (on Mac)
+or `fujicoind`/`fujicoin-qt` (on Linux).
 
-Upgrading directly from a version of Bitcoin Core that has reached its EOL is
+Upgrading directly from a version of Fujicoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
-wallet versions of Bitcoin Core are generally supported.
+wallet versions of Fujicoin Core are generally supported.
 
 Compatibility
 ==============
 
-Bitcoin Core is supported and extensively tested on operating systems
-using the Linux kernel, macOS 10.14+, and Windows 7 and newer.  Bitcoin
+Fujicoin Core is supported and extensively tested on operating systems
+using the Linux kernel, macOS 10.14+, and Windows 7 and newer.  Fujicoin
 Core should also work on most other Unix-like systems but is not as
-frequently tested on them.  It is not recommended to use Bitcoin Core on
+frequently tested on them.  It is not recommended to use Fujicoin Core on
 unsupported systems.
 
-From Bitcoin Core 22.0 onwards, macOS versions earlier than 10.14 are no longer supported.
+From Fujicoin Core 22.0 onwards, macOS versions earlier than 10.14 are no longer supported.
 
 Notable changes
 ===============
@@ -64,7 +64,7 @@ P2P and network changes
 - This release removes support for Tor version 2 hidden services in favor of Tor
   v3 only, as the Tor network [dropped support for Tor
   v2](https://blog.torproject.org/v2-deprecation-timeline) with the release of
-  Tor version 0.4.6.  Henceforth, Bitcoin Core ignores Tor v2 addresses; it
+  Tor version 0.4.6.  Henceforth, Fujicoin Core ignores Tor v2 addresses; it
   neither rumors them over the network to other peers, nor stores them in memory
   or to `peers.dat`.  (#22050)
 
@@ -74,13 +74,13 @@ P2P and network changes
 Updated RPCs
 ------------
 
-- Due to [BIP 350](https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki)
+- Due to [BIP 350](https://github.com/fujicoin/bips/blob/master/bip-0350.mediawiki)
   being implemented, behavior for all RPCs that accept addresses is changed when
   a native witness version 1 (or higher) is passed. These now require a Bech32m
   encoding instead of a Bech32 one, and Bech32m encoding will be used for such
   addresses in RPC output as well. No version 1 addresses should be created
   for mainnet until consensus rules are adopted that give them meaning
-  (e.g. through [BIP 341](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki)).
+  (e.g. through [BIP 341](https://github.com/fujicoin/bips/blob/master/bip-0341.mediawiki)).
   Once that happens, Bech32m is expected to be used for them, so this shouldn't
   affect any production systems, but may be observed on other networks where such
   addresses already have meaning (like signet). (#20861)
@@ -109,7 +109,7 @@ Updated RPCs
   of `decodescript` these fields are top-level attributes, and included again as attributes
   of the `scriptPubKey` object. (#20286)
 
-- When creating a hex-encoded bitcoin transaction using the `bitcoin-tx` utility
+- When creating a hex-encoded fujicoin transaction using the `fujicoin-tx` utility
   with the `-json` option set, the following fields: `addresses`, `reqSigs` are no longer
   returned in the tx output of the response. (#20286)
 
@@ -155,7 +155,7 @@ Updated settings
 
 Changes to Wallet or GUI related settings can be found in the GUI or Wallet section below.
 
-- Passing an invalid `-rpcauth` argument now cause bitcoind to fail to start.  (#20461)
+- Passing an invalid `-rpcauth` argument now cause fujicoind to fail to start.  (#20461)
 
 Tools and Utilities
 -------------------
@@ -163,12 +163,12 @@ Tools and Utilities
 - A new CLI `-addrinfo` command returns the number of addresses known to the
   node per network type (including Tor v2 versus v3) and total. This can be
   useful to see if the node knows enough addresses in a network to use options
-  like `-onlynet=<network>` or to upgrade to this release of Bitcoin Core 22.0
+  like `-onlynet=<network>` or to upgrade to this release of Fujicoin Core 22.0
   that supports Tor v3 only.  (#21595)
 
-- A new `-rpcwaittimeout` argument to `bitcoin-cli` sets the timeout
+- A new `-rpcwaittimeout` argument to `fujicoin-cli` sets the timeout
   in seconds to use with `-rpcwait`. If the timeout expires,
-  `bitcoin-cli` will report a failure. (#21056)
+  `fujicoin-cli` will report a failure. (#21056)
 
 Wallet
 ------
@@ -220,4 +220,4 @@ Thanks to everyone who directly contributed to this release:
 
 
 As well as to everyone that helped with translations on
-[Transifex](https://www.transifex.com/bitcoin/bitcoin/).
+[Transifex](https://www.transifex.com/fujicoin/fujicoin/).
