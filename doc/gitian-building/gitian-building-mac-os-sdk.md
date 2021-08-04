@@ -5,7 +5,7 @@ Get Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers.tar.gz
 --------------------------
 
 To get `Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers.tar.gz` see following page.
-[How to extract MacOS SDK](../../../contrib/macdeploy/README.md)
+[How to extract MacOS SDK](/contrib/macdeploy/README.md)
 
 Copy SDK to Gitian VM:
 ----------------------
