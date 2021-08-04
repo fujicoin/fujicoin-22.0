@@ -13,8 +13,8 @@ Create a new VirtualBox VM
 
 [ORACLE VirtualBox(free)](https://www.virtualbox.org/)
 
-Installing Ubuntu 21.04
--------------------------
+Installing Ubuntu 18.04 or 21.04
+--------------------------------
 
 [https://www.ubuntu.com/#download](https://www.ubuntu.com/#download)
 

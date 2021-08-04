@@ -31,12 +31,12 @@ The first step is to prepare the host environment that will be used to perform t
 This guide explains how to set up the environment, and how to start the builds.
 
 Gitian builds are known to be working on recent versions of Ubuntu.
-If your machine is already running Ubuntu 21.04, you can perform Gitian builds on the actual hardware.
+If your machine is already running Ubuntu 18.04 or 21.04, you can perform Gitian builds on the actual hardware.
 Alternatively, you can install one of the supported operating systems in a virtual machine.
 
 Please refer to the following documents to set up the operating systems and Gitian.
 
-|                                   | Ubuntu 21.04                                                                             |
+|                                   | Ubuntu 18.04 or 21.04                                                                             |
 |-----------------------------------|------------------------------------------------------------------------------------|
 | Setup virtual machine (optional)  | [Create Ubuntu VirtualBox](./gitian-building/gitian-building-create-vm-debian.md) |
 | Setup Gitian                      | [Setup Gitian on Ubuntu](./gitian-building/gitian-building-setup-gitian-debian.md) |
@@ -59,7 +59,7 @@ cp fujicoin/contrib/gitian-build.py .
 You only need to do this once:
 
 ```
-./gitian-build.py --setup
+./gitian-build.py --setup -d
 ```
 
 By default, base VM of Ubuntu bionic will be created.
@@ -73,19 +73,19 @@ To build the most recent tag:
 
 All:
 
- `./gitian-build.py --detach-sign --no-commit -b satoshi v22.0`
+ `./gitian-build.py -d --detach-sign --no-commit -b satoshi v22.0`
 
 Linux:
 
- `./gitian-build.py --detach-sign --no-commit -b -o l satoshi v22.0`
+ `./gitian-build.py -d --detach-sign --no-commit -b -o l satoshi v22.0`
 
 Windows:
 
- `./gitian-build.py --detach-sign --no-commit -b -o w satoshi v22.0`
+ `./gitian-build.py -d --detach-sign --no-commit -b -o w satoshi v22.0`
 
 OSX:
 
- `./gitian-build.py --detach-sign --no-commit -b -o m satoshi v22.0`
+ `./gitian-build.py -d --detach-sign --no-commit -b -o m satoshi v22.0`
 
 How to see options:
 
