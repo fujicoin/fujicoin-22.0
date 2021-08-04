@@ -238,9 +238,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tf";
-
-        vFixedSeeds = std::vector<uint8_t>(std::begin(chainparams_seed_test), std::end(chainparams_seed_test));
-
+                
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         m_is_test_chain = true;

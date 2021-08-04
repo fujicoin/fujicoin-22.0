@@ -985,15 +985,15 @@ void PeerManagerImpl::FindNextBlocksToDownload(CNode* pto, unsigned int count, s
     if (state->pindexLastCommonBlock == state->pindexBestKnownBlock)
         return;
     
-    if (::ChainstateActive().IsStartUp > 0 && state->pindexBestKnownBlock->nHeight - ::ChainActive().Height() <= 1 && ::ChainActive().Height() - state->pindexLastCommonBlock->nHeight <= 1){
-        ::ChainstateActive().IsStartUp -= 1;
-        LogPrintf("::Set ChainstateActive().IsStartUp=%d\n", ::ChainstateActive().IsStartUp);
+    if (m_chainman.ActiveChainstate().IsStartUp > 0 && state->pindexBestKnownBlock->nHeight - m_chainman.ActiveChain().Height() <= 1 && m_chainman.ActiveChain().Height() - state->pindexLastCommonBlock->nHeight <= 1){
+        m_chainman.ActiveChainstate().IsStartUp -= 1;
+        LogPrintf("::Set ActiveChainstate().IsStartUp=%d\n", m_chainman.ActiveChainstate().IsStartUp);
     }
 
     // Introduce settlement to Fujicoin's block chain.
     // Payment will be settled with 6 confirmations.
-    if(::ChainstateActive().IsStartUp < 1 && ::ChainActive().Height() - state->pindexLastCommonBlock->nHeight >= 6){
-        LogPrintf("::Peer disconnected: Over Height=%d peer=%d\n", ::ChainActive().Height() - state->pindexLastCommonBlock->nHeight, pto->GetId());
+    if(m_chainman.ActiveChainstate().IsStartUp < 1 && m_chainman.ActiveChain().Height() - state->pindexLastCommonBlock->nHeight >= 6){
+        LogPrintf("::Peer disconnected: Over Height=%d peer=%d\n", m_chainman.ActiveChain().Height() - state->pindexLastCommonBlock->nHeight, pto->GetId());
         pto->fDisconnect = true;
         return;
     }

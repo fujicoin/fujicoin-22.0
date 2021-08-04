@@ -23,7 +23,9 @@ Prepare the compilation environment:
 Install Ubuntu 21.04
 apt-get update
 apt-get install git wget curl
-apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-all-dev libminiupnpc-dev libzmq3-dev
+apt-get install autoconf automake binutils bison bsdmainutils ca-certificates faketime libtool patch pkg-config
+apt-get install python3-pip
+apt-get install g++-8 gcc-8
 ```
 Let's go:
 ```
