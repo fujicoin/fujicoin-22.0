@@ -1,15 +1,15 @@
 Fujicoin version 0.5.1 is now available for download at:
-http://sourceforge.net/projects/fujicoin/files/Fujicoin/fujicoin-0.5.1/
+http://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.5.1/
 
 This is a bugfix-only release.
 
 This release includes 13 translations, including 5 new translations:
 Italian, Hungarian, Ukranian, Portuguese (Brazilian) and Simplified Chinese.
 More translations are welcome; join the project at Transifex if you can help:
-https://www.transifex.net/projects/p/fujicoin/
+https://www.transifex.net/projects/p/bitcoin/
 
 Please report bugs using the issue tracker at github:
-https://github.com/fujicoin/fujicoin/issues
+https://github.com/bitcoin/bitcoin/issues
 
 Project source code is hosted at github; we are no longer
 distributing .tar.gz files here, you can get them

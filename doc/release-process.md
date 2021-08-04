@@ -5,8 +5,8 @@ Release Process
 
 ### Before every release candidate
 
-* Update translations see [translation_process.md](https://github.com/fujicoin/fujicoin/blob/master/doc/translation_process.md#synchronising-translations).
-* Update manpages, see [gen-manpages.sh](https://github.com/fujicoin/fujicoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update translations see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
+* Update manpages, see [gen-manpages.sh](https://github.com/bitcoin/bitcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 * Update release candidate version in `configure.ac` (`CLIENT_VERSION_RC`).
 
 ### Before every major and minor release
@@ -20,17 +20,17 @@ Release Process
 * On both the master branch and the new release branch:
   - update `CLIENT_VERSION_MAJOR` in [`configure.ac`](../configure.ac)
   - update `CLIENT_VERSION_MAJOR`, `PACKAGE_VERSION`, and `PACKAGE_STRING` in [`build_msvc/fujicoin_config.h`](/build_msvc/fujicoin_config.h)
-* On the new release branch in [`configure.ac`](../configure.ac) and [`build_msvc/fujicoin_config.h`](/build_msvc/fujicoin_config.h) (see [this commit](https://github.com/fujicoin/fujicoin/commit/742f7dd)):
+* On the new release branch in [`configure.ac`](../configure.ac) and [`build_msvc/fujicoin_config.h`](/build_msvc/fujicoin_config.h) (see [this commit](https://github.com/bitcoin/bitcoin/commit/742f7dd)):
   - set `CLIENT_VERSION_MINOR` to `0`
   - set `CLIENT_VERSION_BUILD` to `0`
   - set `CLIENT_VERSION_IS_RELEASE` to `true`
 
 #### Before branch-off
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/fujicoin/fujicoin/pull/7415) for an example.
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/bitcoin/bitcoin/pull/7415) for an example.
 * Update [`src/chainparams.cpp`](/src/chainparams.cpp) m_assumed_blockchain_size and m_assumed_chain_state_size with the current size plus some overhead (see [this](#how-to-calculate-assumed-blockchain-and-chain-state-size) for information on how to calculate them).
 * Update [`src/chainparams.cpp`](/src/chainparams.cpp) chainTxData with statistics about the transaction count and rate. Use the output of the `getchaintxstats` RPC, see
-  [this pull request](https://github.com/fujicoin/fujicoin/pull/20263) for an example. Reviewers can verify the results by running `getchaintxstats <window_block_count> <window_final_block_hash>` with the `window_block_count` and `window_final_block_hash` from your output.
+  [this pull request](https://github.com/bitcoin/bitcoin/pull/20263) for an example. Reviewers can verify the results by running `getchaintxstats <window_block_count> <window_final_block_hash>` with the `window_block_count` and `window_final_block_hash` from your output.
 * Update `src/chainparams.cpp` nMinimumChainWork and defaultAssumeValid (and the block height comment) with information from the `getblockheader` (and `getblockhash`) RPCs.
   - The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
   - Testnet should be set some tens of thousands back from the tip due to reorgs there.
@@ -38,18 +38,18 @@ Release Process
      that causes rejection of blocks in the past history.
 - Clear the release notes and move them to the wiki (see "Write the release notes" below).
 - Translations on Transifex
-    - Create [a new resource](https://www.transifex.com/fujicoin/fujicoin/content/) named after the major version with the slug `[fujicoin.qt-translation-<RRR>x]`, where `RRR` is the major branch number padded with zeros. Use `src/qt/locale/fujicoin_en.xlf` to create it.
+    - Create [a new resource](https://www.transifex.com/bitcoin/bitcoin/content/) named after the major version with the slug `[bitcoin.qt-translation-<RRR>x]`, where `RRR` is the major branch number padded with zeros. Use `src/qt/locale/bitcoin_en.xlf` to create it.
     - In the project workflow settings, ensure that [Translation Memory Fill-up](https://docs.transifex.com/translation-memory/enabling-autofill) is enabled and that [Translation Memory Context Matching](https://docs.transifex.com/translation-memory/translation-memory-with-context) is disabled.
     - Update the Transifex slug in [`.tx/config`](/.tx/config) to the slug of the resource created in the first step. This identifies which resource the translations will be synchronized from.
-    - Make an announcement that translators can start translating for the new version. You can use one of the [previous announcements](https://www.transifex.com/fujicoin/fujicoin/announcements/) as a template.
-    - Change the auto-update URL for the resource to `master`, e.g. `https://raw.githubusercontent.com/fujicoin/fujicoin/master/src/qt/locale/fujicoin_en.xlf`. (Do this only after the previous steps, to prevent an auto-update from interfering.)
+    - Make an announcement that translators can start translating for the new version. You can use one of the [previous announcements](https://www.transifex.com/bitcoin/bitcoin/announcements/) as a template.
+    - Change the auto-update URL for the resource to `master`, e.g. `https://raw.githubusercontent.com/bitcoin/bitcoin/master/src/qt/locale/bitcoin_en.xlf`. (Do this only after the previous steps, to prevent an auto-update from interfering.)
 
 #### After branch-off (on the major release branch)
 
 - Update the versions.
-- Create a pinned meta-issue for testing the release candidate (see [this issue](https://github.com/fujicoin/fujicoin/issues/17079) for an example) and provide a link to it in the release announcements where useful.
+- Create a pinned meta-issue for testing the release candidate (see [this issue](https://github.com/bitcoin/bitcoin/issues/17079) for an example) and provide a link to it in the release announcements where useful.
 - Translations on Transifex
-    - Change the auto-update URL for the new major version's resource away from `master` and to the branch, e.g. `https://raw.githubusercontent.com/fujicoin/fujicoin/<branch>/src/qt/locale/fujicoin_en.xlf`. Do not forget this or it will keep tracking the translations on master instead, drifting away from the specific major release.
+    - Change the auto-update URL for the new major version's resource away from `master` and to the branch, e.g. `https://raw.githubusercontent.com/bitcoin/bitcoin/<branch>/src/qt/locale/bitcoin_en.xlf`. Do not forget this or it will keep tracking the translations on master instead, drifting away from the specific major release.
 
 #### Before final release
 
@@ -58,7 +58,7 @@ Release Process
 
 #### Tagging a release (candidate)
 
-To tag the version (or release candidate) in git, use the `make-tag.py` script from [fujicoin-maintainer-tools](https://github.com/fujicoin-core/fujicoin-maintainer-tools). From the root of the repository run:
+To tag the version (or release candidate) in git, use the `make-tag.py` script from [fujicoin-maintainer-tools](https://github.com/bitcoin-core/bitcoin-maintainer-tools). From the root of the repository run:
 
     ../fujicoin-maintainer-tools/make-tag.py v(new version, e.g. 0.20.0)
 
@@ -74,17 +74,17 @@ Install Guix using one of the installation methods detailed in
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/fujicoin-core/guix.sigs.git
-    git clone https://github.com/fujicoin-core/fujicoin-detached-sigs.git
+    git clone https://github.com/bitcoin-core/guix.sigs.git
+    git clone https://github.com/bitcoin-core/bitcoin-detached-sigs.git
     git clone https://github.com/fujicoin/fujicoin.git
 
 ### Write the release notes
 
-Open a draft of the release notes for collaborative editing at https://github.com/fujicoin-core/fujicoin-devwiki/wiki.
+Open a draft of the release notes for collaborative editing at https://github.com/bitcoin-core/bitcoin-devwiki/wiki.
 
 For the period during which the notes are being edited on the wiki, the version on the branch should be wiped and replaced with a link to the wiki which should be used for all announcements until `-final`.
 
-Generate the change log. As this is a huge amount of work to do manually, there is the `list-pulls` script to do a pre-sorting step based on github PR metadata. See the [documentation in the README.md](https://github.com/fujicoin-core/fujicoin-maintainer-tools/blob/master/README.md#list-pulls).
+Generate the change log. As this is a huge amount of work to do manually, there is the `list-pulls` script to do a pre-sorting step based on github PR metadata. See the [documentation in the README.md](https://github.com/bitcoin-core/bitcoin-maintainer-tools/blob/master/README.md#list-pulls).
 
 Generate list of authors:
 
@@ -181,7 +181,7 @@ popd
 Non-codesigners: wait for Windows/macOS detached signatures:
 
 - Once the Windows/macOS builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [fujicoin-detached-sigs](https://github.com/fujicoin-core/fujicoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [fujicoin-detached-sigs](https://github.com/bitcoin-core/bitcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the codesigned outputs:
 
@@ -253,7 +253,7 @@ EOF
   - fujicoincore.org blog post
 
   - fujicoincore.org maintained versions update:
-    [table](https://github.com/fujicoin-core/fujicoincore.org/commits/master/_includes/posts/maintenance-table.md)
+    [table](https://github.com/bitcoin-core/bitcoincore.org/commits/master/_includes/posts/maintenance-table.md)
 
   - fujicoincore.org RPC documentation update
 
@@ -263,7 +263,7 @@ EOF
 
       - Run fujicoind on regtest
 
-      - Clone the [fujicoincore.org repository](https://github.com/fujicoin-core/fujicoincore.org)
+      - Clone the [fujicoincore.org repository](https://github.com/bitcoin-core/bitcoincore.org)
 
       - Run: `go run generate.go` while being in `contrib/doc-gen` folder, and with fujicoin-cli in PATH
 
@@ -271,17 +271,17 @@ EOF
 
   - Update packaging repo
 
-      - Push the flatpak to flathub, e.g. https://github.com/flathub/org.fujicoincore.fujicoin-qt/pull/2
+      - Push the flatpak to flathub, e.g. https://github.com/flathub/org.bitcoincore.bitcoin-qt/pull/2
 
-      - Push the latest version to master (if applicable), e.g. https://github.com/fujicoin-core/packaging/pull/32
+      - Push the latest version to master (if applicable), e.g. https://github.com/bitcoin-core/packaging/pull/32
 
       - Create a new branch for the major release "0.xx" from master (used to build the snap package) and request the
-        track (if applicable), e.g. https://forum.snapcraft.io/t/track-request-for-fujicoin-core-snap/10112/7
+        track (if applicable), e.g. https://forum.snapcraft.io/t/track-request-for-bitcoin-core-snap/10112/7
 
       - Notify MarcoFalke so that he can start building the snap package
 
-        - https://code.launchpad.net/~fujicoin-core/fujicoin-core-snap/+git/packaging (Click "Import Now" to fetch the branch)
-        - https://code.launchpad.net/~fujicoin-core/fujicoin-core-snap/+git/packaging/+ref/0.xx (Click "Create snap package")
+        - https://code.launchpad.net/~bitcoin-core/bitcoin-core-snap/+git/packaging (Click "Import Now" to fetch the branch)
+        - https://code.launchpad.net/~bitcoin-core/bitcoin-core-snap/+git/packaging/+ref/0.xx (Click "Create snap package")
         - Name it "fujicoin-core-snap-0.xx"
         - Leave owner and series as-is
         - Select architectures that are compiled via guix
@@ -292,21 +292,21 @@ EOF
         - Put "0.xx" in the track field
         - Click "create snap package"
         - Click "Request builds" for every new release on this branch (after updating the snapcraft.yml in the branch to reflect the latest guix results)
-        - Promote release on https://snapcraft.io/fujicoin-core/releases if it passes sanity checks
+        - Promote release on https://snapcraft.io/bitcoin-core/releases if it passes sanity checks
 
   - This repo
 
       - Archive the release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-      - Create a [new GitHub release](https://github.com/fujicoin/fujicoin/releases/new) with a link to the archived release notes
+      - Create a [new GitHub release](https://github.com/bitcoin/bitcoin/releases/new) with a link to the archived release notes
 
 - Announce the release:
 
-  - fujicoin-dev and fujicoin-core-dev mailing list
+  - fujicoin-dev and bitcoin-core-dev mailing list
 
-  - Fujicoin Core announcements list https://fujicoincore.org/en/list/announcements/join/
+  - Fujicoin Core announcements list https://bitcoincore.org/en/list/announcements/join/
 
-  - Fujicoin Core Twitter https://twitter.com/fujicoincoreorg
+  - Fujicoin Core Twitter https://twitter.com/bitcoincoreorg
 
   - Celebrate
 

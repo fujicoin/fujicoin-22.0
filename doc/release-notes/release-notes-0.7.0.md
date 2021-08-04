@@ -1,11 +1,11 @@
 Fujicoin version 0.7.0 is now available for download at:
-  http://sourceforge.net/projects/fujicoin/files/Fujicoin/fujicoin-0.7.0/
+  http://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.7.0/
 
 We recommend that everybody running prior versions of fujicoind/Fujicoin-Qt
 upgrade to this release, except for users running Mac OSX 10.5.
 
 Please report bugs using the issue tracker at github:
-  https://github.com/fujicoin/fujicoin/issues
+  https://github.com/bitcoin/bitcoin/issues
 
 Project source code is hosted at github; you can get
 source-only tarballs/zipballs directly from there:

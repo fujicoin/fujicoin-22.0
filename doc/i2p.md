@@ -50,7 +50,7 @@ It is possible to restrict outgoing connections in the usual way with
 `onlynet=i2p`. I2P support was added to Fujicoin Core in version 22.0 (mid-2021)
 and there may be fewer I2P peers than Tor or IP ones. Therefore, using
 `onlynet=i2p` alone (without other `onlynet=`) may make a node more susceptible
-to [Sybil attacks](https://en.fujicoin.it/wiki/Weaknesses#Sybil_attack). Use
+to [Sybil attacks](https://en.bitcoin.it/wiki/Weaknesses#Sybil_attack). Use
 `fujicoin-cli -addrinfo` to see the number of I2P addresses known to your node.
 
 Another consideration with `onlynet=i2p` is that the initial blocks download

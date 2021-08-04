@@ -8,7 +8,7 @@
 #ifdef ENABLE_EXTERNAL_SIGNER
 #if defined(WIN32) && !defined(__kernel_entry)
 // A workaround for boost 1.71 incompatibility with mingw-w64 compiler.
-// For details see https://github.com/fujicoin/fujicoin/pull/22348.
+// For details see https://github.com/bitcoin/bitcoin/pull/22348.
 #define __kernel_entry
 #endif
 #include <boost/process.hpp>
@@ -229,7 +229,7 @@ static util::SettingsValue InterpretOption(std::string& section, std::string& ke
  *
  * TODO: Add more meaningful error checks here in the future
  * See "here's how the flags are meant to behave" in
- * https://github.com/fujicoin/fujicoin/pull/16097#issuecomment-514627823
+ * https://github.com/bitcoin/bitcoin/pull/16097#issuecomment-514627823
  */
 static bool CheckValid(const std::string& key, const util::SettingsValue& val, unsigned int flags, std::string& error)
 {

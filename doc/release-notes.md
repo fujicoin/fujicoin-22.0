@@ -1,4 +1,4 @@
-# Release notes now being edited on https://github.com/fujicoin-core/fujicoin-devwiki/wiki/22.0-Release-Notes-draft
+# Release notes now being edited on https://github.com/bitcoin-core/bitcoin-devwiki/wiki/22.0-Release-Notes-draft
 
 *After branching off for a major version release of Fujicoin Core, use this
 template to create the initial release notes draft.*
@@ -10,7 +10,7 @@ for the process.*
 *Create the draft, named* "*version* Release Notes Draft"
 *(e.g. "0.20.0 Release Notes Draft"), as a collaborative wiki in:*
 
-https://github.com/fujicoin-core/fujicoin-devwiki/wiki/
+https://github.com/bitcoin-core/bitoin-devwiki/wiki/
 
 *Before the final release, move the notes back to this git repository.*
 
@@ -19,18 +19,18 @@ https://github.com/fujicoin-core/fujicoin-devwiki/wiki/
 
 Fujicoin Core version *version* is now available from:
 
-  <https://fujicoincore.org/bin/fujicoin-core-*version*/>
+  <https://bitcoincore.org/bin/bitcoin-core-*version*/>
 
 This release includes new features, various bug fixes and performance
 improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/fujicoin/fujicoin/issues>
+  <https://github.com/bitcoin/bitcoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://fujicoincore.org/en/list/announcements/join/>
+  <https://bitcoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
@@ -74,13 +74,13 @@ P2P and network changes
 Updated RPCs
 ------------
 
-- Due to [BIP 350](https://github.com/fujicoin/bips/blob/master/bip-0350.mediawiki)
+- Due to [BIP 350](https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki)
   being implemented, behavior for all RPCs that accept addresses is changed when
   a native witness version 1 (or higher) is passed. These now require a Bech32m
   encoding instead of a Bech32 one, and Bech32m encoding will be used for such
   addresses in RPC output as well. No version 1 addresses should be created
   for mainnet until consensus rules are adopted that give them meaning
-  (e.g. through [BIP 341](https://github.com/fujicoin/bips/blob/master/bip-0341.mediawiki)).
+  (e.g. through [BIP 341](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki)).
   Once that happens, Bech32m is expected to be used for them, so this shouldn't
   affect any production systems, but may be observed on other networks where such
   addresses already have meaning (like signet). (#20861)
@@ -220,4 +220,4 @@ Thanks to everyone who directly contributed to this release:
 
 
 As well as to everyone that helped with translations on
-[Transifex](https://www.transifex.com/fujicoin/fujicoin/).
+[Transifex](https://www.transifex.com/bitcoin/bitcoin/).

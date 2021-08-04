@@ -1,12 +1,12 @@
 Fujicoin-Qt version 0.8.6 final is now available from:
 
-  http://sourceforge.net/projects/fujicoin/files/Fujicoin/fujicoin-0.8.6/
+  http://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.8.6/
 
 This is a maintenance release to fix a critical bug; we urge all users to upgrade.
 
 Please report bugs using the issue tracker at github:
 
-  https://github.com/fujicoin/fujicoin/issues
+  https://github.com/bitcoin/bitcoin/issues
 
 How to Upgrade
 --------------
