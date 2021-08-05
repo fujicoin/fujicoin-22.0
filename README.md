@@ -22,6 +22,8 @@ the Fujicoin Core software, see http://www.fujicoin.org/, or read the
 How to Build
 ------------
 
+[GUIX BUILD(Linux, Windows, OSX)](./contrib/guix/README.md) - Recommended
+
 [GITIAN BUILD(Linux, Windows, OSX)](./doc/gitian-building.md)
 
 [UNIX BUILD](./doc/build-unix.md)
