@@ -36,6 +36,13 @@ Please refer to the following page for how to set up your own Signet network.
 
 [Signet Network](./doc/signet.md)
 
+Hardware wallet
+---------------
+
+Fujicoin core supports TREZOR hardware wallet. Please refer to the following page for how to use.
+
+[External Signer](./doc/external-signer.md)
+
 License
 -------
 

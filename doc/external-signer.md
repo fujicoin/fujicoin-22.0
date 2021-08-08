@@ -2,9 +2,18 @@
 
 Fujicoin Core can be launched with `-signer=<cmd>` where `<cmd>` is an external tool which can sign transactions and perform other functions. For example, it can be used to communicate with a hardware wallet.
 
+## Quick Start Guide on Windows
+
+1. Set the path to the External signer on the [Wallet] tab of the [Settings]-[Options] menu.
+    * for example: "C:\Program Files\hwi\hwi.exe"
+2. Connect TREZOR to the USB port.
+3. Start hwi-qt.exe and select trezor.
+4. Click [send pin] and enter the pin.
+5. Create a new wallet in the core wallet.
+
 ## Example usage
 
-The following example is based on the [HWI](https://github.com/bitcoin-core/HWI) tool. Version 2.0 or newer is required. Although this tool is hosted under the Fujicoin Core GitHub organization and maintained by Fujicoin Core developers, it should be used with caution. It is considered experimental and has far less review than Fujicoin Core itself. Be particularly careful when running tools such as these on a computer with private keys on it.
+The following example is based on the [HWI](https://github.com/fujicoin/HWI) tool. Version 2.0 or newer is required. Although this tool is hosted under the Fujicoin Core GitHub organization and maintained by Fujicoin Core developers, it should be used with caution. It is considered experimental and has far less review than Fujicoin Core itself. Be particularly careful when running tools such as these on a computer with private keys on it.
 
 When using a hardware wallet, consult the manufacturer website for (alternative) software they recommend. As long as their software conforms to the standard below, it should be able to work with Fujicoin Core.
 
