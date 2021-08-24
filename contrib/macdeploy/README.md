@@ -1,3 +1,7 @@
+## Get `Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers.tar.gz`
+
+Download from: [bitcoincore.org](https://bitcoincore.org/depends-sources/sdks/Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers.tar.gz)
+
 # MacOS Deployment
 
 The `macdeployqtplus` script should not be run manually. Instead, after building as usual:
