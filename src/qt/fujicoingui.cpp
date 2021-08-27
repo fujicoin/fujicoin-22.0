@@ -694,6 +694,8 @@ void FujicoinGUI::addWallet(WalletModel* walletModel)
     connect(wallet_view, &WalletView::hdEnabledStatusChanged, this, &FujicoinGUI::updateWalletStatus);
     connect(this, &FujicoinGUI::setPrivacy, wallet_view, &WalletView::setPrivacy);
     wallet_view->setPrivacy(isPrivacyModeActivated());
+    const QString display_name = walletModel->getDisplayName();
+    m_wallet_selector->addItem(display_name, QVariant::fromValue(walletModel));
 }
 
 void FujicoinGUI::removeWallet(WalletModel* walletModel)
