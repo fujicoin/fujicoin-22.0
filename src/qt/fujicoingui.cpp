@@ -682,8 +682,6 @@ void FujicoinGUI::addWallet(WalletModel* walletModel)
         m_wallet_selector_label_action->setVisible(true);
         m_wallet_selector_action->setVisible(true);
     }
-    const QString display_name = walletModel->getDisplayName();
-    m_wallet_selector->addItem(display_name, QVariant::fromValue(walletModel));
 
     connect(wallet_view, &WalletView::outOfSyncWarningClicked, this, &FujicoinGUI::showModalOverlay);
     connect(wallet_view, &WalletView::transactionClicked, this, &FujicoinGUI::gotoHistoryPage);
